@@ -370,3 +370,28 @@ $(function () {
 
 
 });
+
+/* Back to top
+     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+
+        // Get the button
+        let mybutton = document.getElementById("backToTopBtn");
+
+        // Get the "about" section
+        let aboutSection = document.getElementById("about");
+
+        // When the user scrolls down to the "about" section, show the button
+        window.onscroll = function() {
+            let aboutSectionTop = aboutSection.offsetTop;
+            if (document.body.scrollTop > aboutSectionTop || document.documentElement.scrollTop > aboutSectionTop) {
+                mybutton.classList.add("show");
+            } else {
+                mybutton.classList.remove("show");
+            }
+        };
+
+        // When the user clicks on the button, scroll to the top of the document smoothly
+        mybutton.onclick = function() {
+            document.documentElement.scrollIntoView({ behavior: 'smooth' });
+        };
